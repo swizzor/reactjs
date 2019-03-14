@@ -6,6 +6,10 @@ body {
   ol, ul {
     padding-left: 30px;
   }
+
+  .buttonSelected{
+    font-weight: bold;
+  }
   
   .board-row:after {
     clear: both;
@@ -48,4 +52,3 @@ body {
   .game-info {
     margin-left: 20px;
   }
-  
