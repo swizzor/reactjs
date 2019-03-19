@@ -5,7 +5,7 @@ export default class Comment extends React.Component {
         return(
             <div>
                 <li>
-                    {this.props.msg} <button onClick={() => {this.props.onClickDel()}}>Delete comment</button>
+                    {this.props.comment.text} <button onClick={() => {this.props.onClickDel()}}>Delete comment</button>
                 </li>
             </div>
         )

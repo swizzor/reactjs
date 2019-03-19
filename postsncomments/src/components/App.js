@@ -15,7 +15,7 @@ export default class App extends React.Component {
                 <button onClick={() => this.addPost()}>New Post</button>
                 <ul>
                     {
-                        Array.from(this.state.posts).map((elem, idx) => {
+                        this.state.posts.map((elem, idx) => {
                             return <Post key={idx} onClickDel={() => {this.removePost(idx)}} msg={elem}/>
                         })
                     }
