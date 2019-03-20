@@ -9,7 +9,7 @@ class App extends Component {
   state = {
     infoData: false,
     infoReposListData: false,
-    infoStarredListData: false
+    infoStarredListData: false,
   }
 
   componentDidMount(){
