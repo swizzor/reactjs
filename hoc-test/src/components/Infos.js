@@ -1,19 +1,40 @@
-import React from 'react';
-import { withLoading } from '../hocs/withLoading';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { fetchAPI } from '../hocs/fetchAPI'
+import { withLoading } from '../hocs/withLoading'
 
-const Infos = () => (
-    <ul style={{clear:'both', displa:'block', listStyle:'none'}}>
-        <li>
-            <img
-                alt="me"
-                src='https://cdn.dicionariopopular.com/imagens/xablau-og.jpg'
-                style={{ margin: '0 auto' }}
-            />
-        </li>
-        <li>Xablau 1</li>
-        <li>Xablau 2</li>
-        <li>Xablau 3</li>
-    </ul>
-);
+const Infos = ({ data }) => {
+	const { avatar_url, blog, login, name } = data;
 
-export default withLoading(Infos);
+	return (
+		<ul style={{clear:'both', displa:'block', listStyle:'none'}}>
+			<li>
+				<img
+					alt="me"
+					src={avatar_url}
+					style={{ margin: '0 auto' }}
+				/>
+			</li>
+			<li>Name: {name}</li>
+			<li>Username: {login}</li>
+			<li>Blog: {blog}</li>
+		</ul>
+	);
+};
+
+Infos.defaultProps ={
+	data: {}
+};
+
+Infos.propTypes = {
+	data: PropTypes.shape({
+		avatar_url: PropTypes.string,
+		blog: PropTypes.string,
+		login: PropTypes.string,
+		name: PropTypes.string
+	})
+};
+
+const InfosLoading = withLoading(Infos);
+
+export default fetchAPI(InfosLoading);
